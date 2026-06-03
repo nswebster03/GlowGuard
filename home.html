@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlowGuard</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="peony-logo">✿</div>
+      <div>
+        <h1>GlowGuard</h1>
+        <p>Personalized Beauty Intelligence</p>
+      </div>
+    </div>
+
+    <div class="top-search">
+      <input type="text" id="topProductSearch" placeholder="Search for a product...">
+      <button onclick="topSearchProduct()">Search</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+
+    <section class="card analyzer-card">
+      <h2>Analyze Your Product ✨</h2>
+
+      <label>Product Name <span>(optional)</span></label>
+      <input class="text-input" type="text" placeholder="e.g. Dr. Jart Ceramidin Cream">
+
+      <label>Paste Ingredient List</label>
+      <textarea id="ingredientInput" placeholder="Paste ingredients here..."></textarea>
+
+      <label>Upload Product Image <span>(optional)</span></label>
+      <div class="upload-box">
+        <input type="file" id="productUpload" accept="image/*" onchange="previewProductImage(event)">
+        <div id="imagePreview"></div>
+      </div>
+
+      <button class="main-btn" onclick="checkIngredients()">Analyze Product</button>
+      <button class="clearBtn" onclick="clearText()">Clear</button>
+    </section>
+
+    <section class="card score-card">
+      <div class="flower-watermark">✿</div>
+
+      <h2>Your Skin Score</h2>
+
+      <div class="score-circle">
+        <span>88</span>
+        <small>/100</small>
+      </div>
+
+      <h3>Great Choice!</h3>
+      <p>This product may be a good match for your skin.</p>
+
+      <div class="score-grid">
+        <div><strong>Acne Safe</strong><span>92/100</span></div>
+        <div><strong>Hydration</strong><span>90/100</span></div>
+        <div><strong>Sensitive</strong><span>85/100</span></div>
+        <div><strong>Dark Spots</strong><span>87/100</span></div>
+      </div>
+    </section>
+
+    <section class="card profile-card">
+      <h2>Your Skin Profile</h2>
+
+      <h4>Skin Types</h4>
+      <div class="skin-options">
+        <label><input type="checkbox" name="skinType" value="sensitive"><span>Sensitive</span></label>
+        <label><input type="checkbox" name="skinType" value="acne-prone"><span>Acne-Prone</span></label>
+        <label><input type="checkbox" name="skinType" value="combination"><span>Combination</span></label>
+        <label><input type="checkbox" name="skinType" value="dry"><span>Dry</span></label>
+        <label><input type="checkbox" name="skinType" value="oily"><span>Oily</span></label>
+        <label><input type="checkbox" name="skinType" value="normal"><span>Normal</span></label>
+      </div>
+
+      <h4>Skin Goals</h4>
+      <div class="goal-options">
+        <label><input type="checkbox" value="hydration"><span>Hydration</span></label>
+        <label><input type="checkbox" value="dark-spots"><span>Dark Spots</span></label>
+        <label><input type="checkbox" value="acne"><span>Acne</span></label>
+        <label><input type="checkbox" value="anti-aging"><span>Anti-Aging</span></label>
+        <label><input type="checkbox" value="redness"><span>Redness</span></label>
+        <label><input type="checkbox" value="texture"><span>Texture</span></label>
+      </div>
+
+      <h4>Allergies & Sensitivities</h4>
+      <div class="allergy-options">
+        <label><input type="checkbox" value="fragrance"><span>Fragrance</span></label>
+        <label><input type="checkbox" value="aloe"><span>Aloe</span></label>
+        <label><input type="checkbox" value="coconut"><span>Coconut</span></label>
+        <label><input type="checkbox" value="nuts"><span>Nuts</span></label>
+        <label><input type="checkbox" value="essential oil"><span>Essential Oils</span></label>
+      </div>
+    </section>
+
+    <section class="card shop-card">
+      <h2>Shop This Product</h2>
+      <p>Find it across your favorite stores.</p>
+
+      <input class="text-input" type="text" id="productSearch" placeholder="Example: Dr. Jart Cream">
+
+      <div class="store-buttons">
+        <button onclick="searchStore('sephora')">Sephora</button>
+        <button onclick="searchStore('ulta')">Ulta</button>
+        <button onclick="searchStore('target')">Target</button>
+      </div>
+    </section>
+
+  </main>
+
+  <section id="results"></section>
+
+  <footer>
+    ✿ Know your ingredients. Love your skin.
+  </footer>
+
+  <script src="productSearch.js"></script>
+  <script src="ingredientAnalyzer.js"></script>
+
+</body>
+</html>
